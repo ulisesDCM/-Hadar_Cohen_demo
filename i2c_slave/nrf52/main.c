@@ -69,7 +69,7 @@ int main(void)
     while (1)
     {
         LOG_INF("I2C slave listening...");
-        k_sleep(K_MSEC(5000));
+        k_sleep(K_MSEC(1000));
         NRFX_EXAMPLE_LOG_PROCESS();
     }
 }
