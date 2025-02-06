@@ -35,7 +35,11 @@ void read_full_string_from_console(void)
     // Read characters from RTT
     while (1) 
     {
-        byte_read = SEGGER_RTT_Read(0, &m_tx_buffer_master[index], 1); // Read one byte
+        byte_read = SEGGER_RTT_WaitKey();
+        SEGGER_RTT_PutChar(0,byte_read);
+        m_tx_buffer_master[index] = byte_read;        
+        // byte_read = SEGGER_RTT_Read(0, &m_tx_buffer_master[index], 1);
+
         if (byte_read > 0) 
         {
             // Check if the byte is a newline or carriage return
