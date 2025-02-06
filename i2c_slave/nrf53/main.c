@@ -10,9 +10,10 @@
 #define SLAVE_SDA_PIN       NRF_GPIO_PIN_MAP(1,2)
 #define TWIS_INST_IDX       1
 #define SLAVE_ADDR          0x4a
+#define SLAVE_BUFF_SIZE     255
 
 static nrfx_twis_t slave_inst = NRFX_TWIS_INSTANCE(TWIS_INST_IDX);
-static uint8_t m_rx_buffer_slave[10];
+static uint8_t m_rx_buffer_slave[SLAVE_BUFF_SIZE];
 
 /* Init log module */
 LOG_MODULE_REGISTER(i2c_slave, LOG_LEVEL_INF);
@@ -25,24 +26,18 @@ static void i2c_slave_handler(nrfx_twis_evt_t const * p_event)
 
     switch (p_event->type)
     {
-        case NRFX_TWIS_EVT_WRITE_DONE:
-            break;
-
         case NRFX_TWIS_EVT_READ_DONE:
             break;
 
-        case NRFX_TWIS_EVT_WRITE_REQ:
-            LOG_INF("--> Slave event: write request");
-            for(int i=0;i<sizeof(m_rx_buffer_slave); i++)
-            {
-                LOG_INF("--> Slave event: %x", m_rx_buffer_slave[i]);
-            }
-
-            status = nrfx_twis_rx_prepare(&slave_inst, m_rx_buffer_slave, sizeof(m_rx_buffer_slave));
-            NRFX_ASSERT(status == NRFX_SUCCESS);  
+        case NRFX_TWIS_EVT_READ_REQ:
             break;
 
-        case NRFX_TWIS_EVT_READ_REQ:
+        case NRFX_TWIS_EVT_WRITE_REQ:
+            status = nrfx_twis_rx_prepare(&slave_inst, m_rx_buffer_slave, sizeof(m_rx_buffer_slave));  
+            break;
+
+        case NRFX_TWIS_EVT_WRITE_DONE:
+            LOG_INF("Slave msg received: %s", m_rx_buffer_slave);
             break;
 
         default:
@@ -61,15 +56,16 @@ int main(void)
     nrfx_twis_config_t slave_config = NRFX_TWIS_DEFAULT_CONFIG(SLAVE_SCL_PIN,
                                                               SLAVE_SDA_PIN,
                                                               SLAVE_ADDR);
+
     status = nrfx_twis_init(&slave_inst, &slave_config, i2c_slave_handler);
     NRFX_ASSERT(status == NRFX_SUCCESS);
 
     nrfx_twis_enable(&slave_inst);
 
+    LOG_INF("I2C slave listening...");
+
     while (1)
     {
-        LOG_INF("I2C slave listening...");
-        k_sleep(K_MSEC(1000));
         NRFX_EXAMPLE_LOG_PROCESS();
     }
 }

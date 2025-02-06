@@ -11,8 +11,7 @@
 #define MASTER_SDA_PIN      NRF_GPIO_PIN_MAP(1,2)
 #define TWIM_INST_IDX       0
 #define SLAVE_ADDR          0x4A
-#define MSG_TO_SEND         "hello"
-#define RTT_BUFFER_SIZE     128
+#define RTT_BUFFER_SIZE     255
 
 /* Init log module */
 LOG_MODULE_REGISTER(i2c_master, LOG_LEVEL_INF);
@@ -57,7 +56,6 @@ void read_full_string_from_console(void)
     {
         LOG_ERR("Error sending i2c message to slave, code:%d", status);
     }
-
 }
 
 int main(void)
