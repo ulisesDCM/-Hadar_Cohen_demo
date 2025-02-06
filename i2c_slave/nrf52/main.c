@@ -43,9 +43,6 @@ static void i2c_slave_handler(nrfx_twis_evt_t const * p_event)
             break;
 
         case NRFX_TWIS_EVT_READ_REQ:
-            LOG_INF("--> Slave event: read request");
-            status = nrfx_twis_tx_prepare(&slave_inst, m_rx_buffer_slave, sizeof(m_rx_buffer_slave));
-            NRFX_ASSERT(status == NRFX_SUCCESS);
             break;
 
         default:

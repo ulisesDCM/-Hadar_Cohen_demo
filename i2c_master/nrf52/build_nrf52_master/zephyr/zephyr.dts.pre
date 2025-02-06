@@ -1192,7 +1192,7 @@ zephyr_udc0: &usbd {
  status = "okay";
 };
 # 0 "<command-line>" 2
-# 1 "C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/nrf52840dk_nrf52840.overlay" 1
+# 1 "C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/nrf52840dk_nrf52840.overlay" 1
 &i2c0 {
     dev_slave: dev_slave@4a{
         compatible = "i2c-device";

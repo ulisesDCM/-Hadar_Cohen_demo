@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52
+# Install script for directory: C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

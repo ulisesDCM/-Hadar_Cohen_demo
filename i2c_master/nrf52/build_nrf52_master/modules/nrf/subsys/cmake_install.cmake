@@ -39,31 +39,31 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/net/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/net/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/dfu/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/dfu/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/mpsl/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/mpsl/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/shell/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/shell/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/debug/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/debug/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/suit/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/subsys/suit/cmake_install.cmake")
 endif()
 

@@ -39,101 +39,101 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/canbus/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/canbus/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/debug/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/debug/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/fb/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/fb/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/fs/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/fs/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/ipc/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/ipc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/logging/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/logging/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/mem_mgmt/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/mem_mgmt/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/mgmt/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/mgmt/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/modbus/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/modbus/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/pm/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/pm/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/portability/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/portability/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/random/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/random/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/rtio/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/rtio/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/sd/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/sd/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/stats/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/stats/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/storage/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/storage/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/task_wdt/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/task_wdt/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/testsuite/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/testsuite/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/tracing/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/tracing/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/usb/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/zephyr/subsys/usb/cmake_install.cmake")
 endif()
 

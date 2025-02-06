@@ -39,21 +39,21 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/lib/bin/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/lib/bin/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/lib/flash_patch/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/lib/flash_patch/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/lib/fatal_error/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/lib/fatal_error/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/lib/boot_banner/cmake_install.cmake")
+  include("C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/build_nrf52_master/modules/nrf/lib/boot_banner/cmake_install.cmake")
 endif()
 

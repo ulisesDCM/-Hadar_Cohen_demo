@@ -25,4 +25,4 @@ empty_file.o: C:/ncs/v2.7.0/zephyr/misc/empty_file.c \
  C:/ncs/v2.7.0/zephyr/dts/common/freq.h \
  C:/ncs/v2.7.0/zephyr/dts/arm/nordic/override.dtsi \
  C:/ncs/v2.7.0/zephyr/boards/nordic/nrf52840dk/nrf52840dk_nrf52840-pinctrl.dtsi \
- C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_master/nrf52/nrf52840dk_nrf52840.overlay
+ C:/Users/ulise/repos2/-Hadar_Cohen_demo/i2c_master/nrf52/nrf52840dk_nrf52840.overlay

@@ -4,14 +4,43 @@
 #include <zephyr/drivers/i2c.h>
 #include <SEGGER_RTT.h>
 
-/* I2C config */
+#define MAX_BUFFER_SIZE 128
 #define I2C0_NODE DT_NODELABEL(dev_slave)
 
 /* Init log module */
 LOG_MODULE_REGISTER(i2c_master, LOG_LEVEL_INF);
 
 /* Internal RTT buffer */
-static uint8_t rtt_rx_buffer[64];
+static uint8_t rtt_rx_buffer[MAX_BUFFER_SIZE];
+
+void read_full_string_from_console(void) 
+{
+    char buffer[MAX_BUFFER_SIZE];
+    uint32_t index = 0;
+    int32_t byte_read = 0;
+
+    // Initialize the buffer
+    memset(buffer, 0, sizeof(buffer));
+
+    // Read characters from RTT
+    while (1) {
+        byte_read = SEGGER_RTT_Read(0, &buffer[index], 1); // Read one byte
+        if (byte_read > 0) {
+            // Check if the byte is a newline or carriage return
+            if (buffer[index] == '\n' || buffer[index] == '\r') {
+                buffer[index] = '\0'; // Null-terminate the string
+                break;
+            }
+            index++;
+            if (index >= MAX_BUFFER_SIZE - 1) {
+                buffer[index] = '\0'; // Ensure the string is null-terminated
+                break;
+            }
+        }
+    }
+
+    LOG_INF("Received string: %s\n", buffer);
+}
 
 int main(void)
 {
@@ -32,21 +61,7 @@ int main(void)
     LOG_INF("Waiting for user input...");
     while(1)
     {
-        unsigned int num_bytes = SEGGER_RTT_Read(0, rtt_rx_buffer, sizeof(rtt_rx_buffer));
-        // If there is data received, process it
-        if (num_bytes > 0) {
-            LOG_INF("Send data: %c", rtt_rx_buffer[0]);
-            SEGGER_RTT_WriteString(0, "\n");
-
-            /* Send the data to the slave device over I2C */
-            uint8_t test_send[10] = {rtt_rx_buffer[0],rtt_rx_buffer[1],0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
-            ret = i2c_write_dt(&dev_i2c, test_send, sizeof(test_send));
-            if(ret != 0)
-            {
-                LOG_ERR("Failed to write to I2C device address %x at reg. %x \n\r", dev_i2c.addr,config[0]);
-            }
-        }
-
+        read_full_string_from_console();
         // Sleep for a short while to avoid busy looping
         k_sleep(K_MSEC(10));
     }
