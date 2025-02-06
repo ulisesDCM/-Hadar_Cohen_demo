@@ -986,37 +986,6 @@ arduino_spi: &spi2 {
 # 1 "c:\\users\\ulise\\repos\\-hadar_cohen_demo\\i2c_slave\\nrf52\\common\\common-pinctrl.dtsi" 1
 # 25 "c:\\users\\ulise\\repos\\-hadar_cohen_demo\\i2c_slave\\nrf52\\common\\common-pinctrl.dtsi"
 &pinctrl {
-    spi_dummy: spi_dummy {
-        group1 {
-            psels = <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((4U & 0x7FFFU) << 17U))>,
-                <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((6U & 0x7FFFU) << 17U))>,
-                <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((5U & 0x7FFFU) << 17U))>;
-        };
-    };
-
-    spi_master_default: spi_master_default {
-        group1 {
-            psels = <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((4U & 0x7FFFU) << 17U))>,
-                <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((6U & 0x7FFFU) << 17U))>,
-                <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((5U & 0x7FFFU) << 17U))>;
-        };
-    };
-
-    spi_slave_dummy: spi_slave_dummy {
-        group1 {
-            psels = <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((4U & 0x7FFFU) << 17U))>,
-                <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((6U & 0x7FFFU) << 17U))>,
-                <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((5U & 0x7FFFU) << 17U))>;
-        };
-    };
-
-    i2c_master_dummy: i2c_master_dummy {
-        group1 {
-            psels = <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((12U & 0x7FFFU) << 17U))>,
-                <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((11U & 0x7FFFU) << 17U))>;
-        };
-    };
-
     i2c_slave_dummy: i2c_slave_dummy {
         group1 {
             psels = <((((((0) * 32U) + (0)) & 0x1FFU) << 0U) | ((12U & 0x7FFFU) << 17U))>,
@@ -1027,12 +996,6 @@ arduino_spi: &spi2 {
 # 2 "C:/Users/ulise/repos/-Hadar_Cohen_demo/i2c_slave/nrf52/boards/nrf52dk_nrf52832.overlay" 2
 
 &i2c0 {
-    status = "okay";
-    compatible = "nordic,nrf-twim";
-    pinctrl-0 = <&i2c_master_dummy>;
-};
-
-&i2c1 {
     status = "okay";
     compatible = "nordic,nrf-twis";
     pinctrl-0 = <&i2c_slave_dummy>;

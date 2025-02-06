@@ -1,7 +1,7 @@
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
-#include <zephyr/drivers/i2c.h>
 #include <zephyr/logging/log.h>
+#include <zephyr/drivers/i2c.h>
 #include <SEGGER_RTT.h>
 
 /* I2C config */
