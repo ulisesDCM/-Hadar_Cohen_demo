@@ -1,7 +1,0 @@
-&i2c0 {
-    dev_slave: dev_slave@4a{
-        compatible = "i2c-device";
-        reg = < 0x4a >;
-        label = "DEV_SLAVE";
-    };
-};
