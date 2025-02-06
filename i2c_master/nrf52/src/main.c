@@ -35,13 +35,12 @@ int main(void)
         unsigned int num_bytes = SEGGER_RTT_Read(0, rtt_rx_buffer, sizeof(rtt_rx_buffer));
         // If there is data received, process it
         if (num_bytes > 0) {
-            // For demonstration, print the received data
-            SEGGER_RTT_WriteString(0, "Received: ");
             LOG_INF("Send data: %c", rtt_rx_buffer[0]);
             SEGGER_RTT_WriteString(0, "\n");
-            
+
             /* Send the data to the slave device over I2C */
-            ret = i2c_write_dt(&dev_i2c, config, sizeof(config));
+            uint8_t test_send[10] = {rtt_rx_buffer[0],rtt_rx_buffer[1],0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
+            ret = i2c_write_dt(&dev_i2c, test_send, sizeof(test_send));
             if(ret != 0)
             {
                 LOG_ERR("Failed to write to I2C device address %x at reg. %x \n\r", dev_i2c.addr,config[0]);
