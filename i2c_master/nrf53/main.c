@@ -82,7 +82,11 @@ int main(void)
     {
         LOG_INF("I2C Master sending %s",m_tx_buffer_master);
         status = nrfx_twim_xfer(&twim_inst, &twim_xfer_desc, 0);
-        NRFX_ASSERT(status == NRFX_SUCCESS);
+        if (status != NRFX_SUCCESS)
+        {
+            LOG_ERR("Error sending i2c message to slave, code:%d",status);
+        }
+		
         k_sleep(K_MSEC(1000));
         NRFX_EXAMPLE_LOG_PROCESS();
     }
