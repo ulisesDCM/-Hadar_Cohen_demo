@@ -1,2 +1,0 @@
-osource "c:/users/ulise/repos/-hadar_cohen_demo/i2c_slave/nrf52/boards/shields/*/Kconfig.defconfig"
-osource "C:/ncs/v2.7.0/nrf/boards/shields/*/Kconfig.defconfig"
