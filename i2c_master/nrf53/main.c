@@ -5,8 +5,8 @@
 #include <nrfx_twim.h>
 #include <nrfx_twis.h>
 
-#define MASTER_SCL_PIN      4
-#define MASTER_SDA_PIN      5
+#define MASTER_SCL_PIN      NRF_GPIO_PIN_MAP(1,3)
+#define MASTER_SDA_PIN      NRF_GPIO_PIN_MAP(1,2)
 #define TWIM_INST_IDX       1
 #define SLAVE_ADDR          0x4A
 #define MSG_TO_SEND         "hello"

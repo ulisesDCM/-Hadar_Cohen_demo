@@ -6,8 +6,8 @@
 #include <nrfx_twis.h>
 
 /* Slave instance and pins configuration */
-#define SLAVE_SCL_PIN       31
-#define SLAVE_SDA_PIN       30
+#define SLAVE_SCL_PIN       NRF_GPIO_PIN_MAP(1,3)
+#define SLAVE_SDA_PIN       NRF_GPIO_PIN_MAP(1,2)
 #define TWIS_INST_IDX       1
 #define SLAVE_ADDR          0x4a
 
