@@ -1,0 +1,7 @@
+#include "../common/common-pinctrl.dtsi"
+
+&i2c1 {
+    status = "okay";
+    compatible = "nordic,nrf-twis";
+    pinctrl-0 = <&i2c_slave_dummy>;
+};
