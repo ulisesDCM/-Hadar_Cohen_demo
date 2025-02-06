@@ -4,22 +4,59 @@
 #include <nrfx_example.h>
 #include <nrfx_twim.h>
 #include <nrfx_twis.h>
+#include <SEGGER_RTT.h>
 
+/* Defines and system configuration */
 #define MASTER_SCL_PIN      NRF_GPIO_PIN_MAP(1,3)
 #define MASTER_SDA_PIN      NRF_GPIO_PIN_MAP(1,2)
 #define TWIM_INST_IDX       1
 #define SLAVE_ADDR          0x4A
 #define MSG_TO_SEND         "hello"
+#define RTT_BUFFER_SIZE     20
 
+/* I2C Master transmit buffer */
 static uint8_t m_tx_buffer_master[] = MSG_TO_SEND;
 
-/* Init log module */
+/* RTT Receive buffer */
+static uint8_t rtt_rx_buffer[RTT_BUFFER_SIZE];
+
+/* Log module init */
 LOG_MODULE_REGISTER(i2c_master, LOG_LEVEL_INF);
+
+void read_full_string_from_console(void) 
+{
+    uint32_t index = 0;
+    int32_t byte_read = 0;
+
+    // Initialize the buffer
+    memset(rtt_rx_buffer, 0, sizeof(rtt_rx_buffer));
+
+    // Read characters from RTT
+    while (1) {
+        byte_read = SEGGER_RTT_Read(0, &rtt_rx_buffer[index], 1); // Read one byte
+        if (byte_read > 0) {
+            // Check if the byte is a newline or carriage return
+            if (rtt_rx_buffer[index] == '\n' || rtt_rx_buffer[index] == '\r') {
+                rtt_rx_buffer[index] = '\0'; // Null-terminate the string
+                break;
+            }
+            index++;
+            if (index >= RTT_BUFFER_SIZE - 1) {
+                rtt_rx_buffer[index] = '\0'; // Ensure the string is null-terminated
+                break;
+            }
+        }
+    }
+    LOG_INF("Received string: %s\n", rtt_rx_buffer);
+}
 
 int main(void)
 {
     nrfx_err_t status;
     (void)status;
+
+    /* Init segger RTT */
+    SEGGER_RTT_Init();
 
     LOG_INF("Setting up I2C master device.");
 
