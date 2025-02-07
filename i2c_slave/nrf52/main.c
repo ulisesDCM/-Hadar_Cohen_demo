@@ -47,7 +47,6 @@ static void i2c_slave_handler(nrfx_twis_evt_t const * p_event)
 int main(void)
 {
     nrfx_err_t status;
-    (void)status;
 
     IRQ_CONNECT(NRFX_IRQ_NUMBER_GET(NRF_TWIS_INST_GET(TWIS_INST_IDX)), IRQ_PRIO_LOWEST,
                 NRFX_TWIS_INST_HANDLER_GET(TWIS_INST_IDX), 0, 0);
@@ -66,6 +65,8 @@ int main(void)
 
     while (1)
     {
+        LOG_INF("Hello world");
+        k_msleep(1000);
         NRFX_EXAMPLE_LOG_PROCESS();
     }
 }
