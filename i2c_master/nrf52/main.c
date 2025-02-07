@@ -4,7 +4,6 @@
 #include <nrfx_example.h>
 #include <nrfx_twim.h>
 #include <nrfx_twis.h>
-#include <SEGGER_RTT.h>
 
 /* System defines configuration */
 #define MASTER_SCL_PIN      NRF_GPIO_PIN_MAP(1,3)
@@ -17,16 +16,17 @@
 LOG_MODULE_REGISTER(i2c_master, LOG_LEVEL_INF);
 
 static uint8_t m_tx_buffer_master[RTT_BUFFER_SIZE];
+
 static nrfx_twim_t twim_inst = NRFX_TWIM_INSTANCE(TWIM_INST_IDX);
+
 static nrfx_twim_xfer_desc_t twim_xfer_desc = NRFX_TWIM_XFER_DESC_TX(SLAVE_ADDR,
-                                                                  m_tx_buffer_master,
-                                                                  sizeof(m_tx_buffer_master));
+                                                                     m_tx_buffer_master,
+                                                                     sizeof(m_tx_buffer_master));
 
 void read_full_string_from_console(void) 
 {
     nrfx_err_t status;
     uint32_t index = 0;
-    int32_t byte_read = 0;
 
     // Initialize the m_tx_buffer_master
     memset(m_tx_buffer_master, 0, sizeof(m_tx_buffer_master));
@@ -34,16 +34,21 @@ void read_full_string_from_console(void)
     // Read characters from RTT
     while (1) 
     {
-        byte_read = SEGGER_RTT_Read(0, &m_tx_buffer_master[index], 1);
-        if (byte_read > 0) 
+        // byte_read = SEGGER_RTT_Read(0, &m_tx_buffer_master[index], 1);
+        scanf("%c", (char *) &m_tx_buffer_master[index]);
+        if(m_tx_buffer_master[index] > 0)
         {
             // Check if the byte is a newline or carriage return
-            if (m_tx_buffer_master[index] == '\n' || m_tx_buffer_master[index] == '\r') {
+            if (m_tx_buffer_master[index] == '\n' || m_tx_buffer_master[index] == '\r') 
+            {
                 m_tx_buffer_master[index] = '\0'; // Null-terminate the string
                 break;
             }
+    
             index++;
-            if (index >= RTT_BUFFER_SIZE - 1) {
+    
+            if (index >= RTT_BUFFER_SIZE - 1) 
+            {
                 m_tx_buffer_master[index] = '\0'; // Ensure the string is null-terminated
                 break;
             }
@@ -51,6 +56,7 @@ void read_full_string_from_console(void)
     }
     
     LOG_INF("I2C Master sending: %s",m_tx_buffer_master);
+
     status = nrfx_twim_xfer(&twim_inst, &twim_xfer_desc, 0);
     if (status != NRFX_SUCCESS)
     {
@@ -62,11 +68,6 @@ int main(void)
 {
     nrfx_err_t status;
     (void)status;
-
-    /* Init segger RTT */
-    SEGGER_RTT_Init();
-
-    LOG_INF("Setting up I2C master device.");
 
     /* Setting up I2C master configuration */
     nrfx_twim_config_t twim_config = NRFX_TWIM_DEFAULT_CONFIG(MASTER_SCL_PIN, MASTER_SDA_PIN);
@@ -81,7 +82,8 @@ int main(void)
     LOG_INF("Finish to setting up I2C master device, type something to send");
     while (1)
     {
-        read_full_string_from_console();
+        // read_full_string_from_console();
+        LOG_INF("HELLO UART");
         k_sleep(K_MSEC(10));
         NRFX_EXAMPLE_LOG_PROCESS();
     }
