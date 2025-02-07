@@ -65,8 +65,6 @@ int main(void)
 
     while (1)
     {
-        LOG_INF("Hello world");
-        k_msleep(1000);
         NRFX_EXAMPLE_LOG_PROCESS();
     }
 }
