@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "nrfx_example.h": "c",
-        "nrfx_twim.h": "c"
-    }
-}
