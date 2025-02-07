@@ -35,7 +35,6 @@ void read_full_string_from_console(void)
     while (1) 
     {
 		m_tx_buffer_master[index] = console_getchar();
-		console_putchar(m_tx_buffer_master[index]);
 
         // Check if the byte is a newline or carriage return
         if (m_tx_buffer_master[index] == '\n' || m_tx_buffer_master[index] == '\r') 
@@ -54,7 +53,6 @@ void read_full_string_from_console(void)
     }
     
     LOG_INF("I2C Master sending: %s",m_tx_buffer_master);
-
     status = nrfx_twim_xfer(&twim_inst, &twim_xfer_desc, 0);
     if (status != NRFX_SUCCESS)
     {
@@ -87,3 +85,4 @@ int main(void)
         NRFX_EXAMPLE_LOG_PROCESS();
     }
 }
+
