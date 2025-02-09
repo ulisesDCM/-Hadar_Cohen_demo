@@ -15,26 +15,22 @@
 #define SLAVE_ST_REG_ADDR               0xa
 
 static uint8_t m_tx_buffer_master[CONSOLE_BUFFER_SIZE];
-static uint8_t m_rx_buffer_master[CONSOLE_BUFFER_SIZE];
 
 static nrfx_twim_t twim_inst = NRFX_TWIM_INSTANCE(TWIM_INST_IDX);
 
 static nrfx_twim_xfer_desc_t twim_xfer_desc = NRFX_TWIM_XFER_DESC_TX(SLAVE_ADDR,
                                                                      m_tx_buffer_master,
                                                                      sizeof(m_tx_buffer_master));
-bool send_json_file(void) 
+void send_json_file(void) 
 {
-    bool send_success = false;
     nrfx_err_t status;
     uint32_t index = 0;
-    uint8_t timeout = MASTER_JSON_TIMEOUT_SEC;
 
     // Initialize the m_tx_buffer_master
     twim_xfer_desc.type = NRFX_TWIM_XFER_TX;
     twim_xfer_desc.p_primary_buf = m_tx_buffer_master;
     twim_xfer_desc.primary_length = sizeof(m_tx_buffer_master);
     memset(m_tx_buffer_master, 0, sizeof(m_tx_buffer_master));
-    memset(m_rx_buffer_master, 0, sizeof(m_rx_buffer_master));
 
     /* Get the JSON file from console */
     while (1) 
@@ -67,49 +63,7 @@ bool send_json_file(void)
     
     /* TODO: the console_getchar buffer is not clear after the first message, clear manually */
     console_getchar();
-
-    /* Preparing TWIM from master to receive response */
-    twim_xfer_desc.type = NRFX_TWIM_XFER_RX;
-    twim_xfer_desc.p_primary_buf = m_rx_buffer_master;
-    twim_xfer_desc.primary_length = sizeof(m_rx_buffer_master);
-    m_rx_buffer_master[0] = SLAVE_ST_REG_ADDR;
-
-    /* Polling the status register until it reads the JSON status */
-    while(timeout)
-    {
-        k_msleep(1000);
-        printk("Waiting from slave response\n");
-        status = nrfx_twim_xfer(&twim_inst, &twim_xfer_desc, 0);
-        if (status != NRFX_SUCCESS)
-        {
-            printk("Error polling the status register from the slave, return error: %d \n",status);
-            send_success = false;
-        }
-        else
-        {
-            if ((m_rx_buffer_master[0] == 0xde) && (m_rx_buffer_master[1] == 0xad) )
-            {   
-                send_success = true;
-                break;
-            }
-            else
-            {
-                printk("Slave still sending JSON.\n");
-            }
-        }
-        timeout--;
-    }
-    
-    if(send_success)
-    {
-        printk("send JSON to cloud SUCCESS!!!\n");
-    }
-    else
-    {
-        printk("send JSON to cloud FAILED!!!\n");
-    }
-
-    return send_success;
+    printk("Message sent\n");
 }
 
 int main(void)

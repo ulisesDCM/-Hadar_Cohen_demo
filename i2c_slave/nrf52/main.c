@@ -4,7 +4,6 @@
 #include <nrfx_example.h>
 #include <nrfx_twim.h>
 #include <nrfx_twis.h>
-#include <zephyr/random/random.h>
 
 /* Slave instance and pins configuration */
 #define SLAVE_SCL_PIN       31
@@ -15,7 +14,6 @@
 
 static nrfx_twis_t slave_inst = NRFX_TWIS_INSTANCE(TWIS_INST_IDX);
 static uint8_t m_rx_buffer_slave[SLAVE_BUFF_SIZE];
-static uint8_t m_tx_buffer_slave[SLAVE_BUFF_SIZE];
 
 /* Init log module */
 LOG_MODULE_REGISTER(i2c_slave, LOG_LEVEL_INF);
@@ -32,20 +30,7 @@ static void i2c_slave_handler(nrfx_twis_evt_t const * p_event)
             break;
             
         case NRFX_TWIS_EVT_READ_REQ:
-            uint8_t random;
-            random = (sys_rand8_get() % 6) + 1;
-            if( random == 6)
-            {
-                m_tx_buffer_slave[0] = 0xde;
-                m_tx_buffer_slave[1] = 0xad;
-            }
-            else
-            {
-                m_tx_buffer_slave[0] = 0xbe;
-                m_tx_buffer_slave[1] = 0xef;
-            }
-            nrfx_twis_tx_prepare(&slave_inst, m_tx_buffer_slave, sizeof(m_tx_buffer_slave));
-        break;
+            break;
 
         case NRFX_TWIS_EVT_WRITE_REQ:
             nrfx_twis_rx_prepare(&slave_inst, m_rx_buffer_slave, sizeof(m_rx_buffer_slave));  
