@@ -5,6 +5,7 @@
     "files.associations": {
         "i2c.h": "c",
         "log.h": "c",
-        "nrfx_twis.h": "c"
+        "nrfx_twis.h": "c",
+        "nrfx_example.h": "c"
     }
 }
